@@ -148,7 +148,7 @@ function updateCartDisplay() {
   totalDisplay.textContent = `$${total.toFixed(2)}`;
 }
 
-// add item to cart
+// add item to cart function
 function addToCart(name, price) {
   const item = {
     name: name,
@@ -160,7 +160,7 @@ function addToCart(name, price) {
   updateCartDisplay();
 }
 
-//remove item from cart
+//remove item from cart function
 function removeFromCart(index) {
   if (index < 0 || index >= cart.length) {
     return;
@@ -171,7 +171,7 @@ function removeFromCart(index) {
   updateCartDisplay();
 }
 
-// Add buttons event listener
+// Add to cart buttons event listener
 for (let i = 0; i < addButtons.length; i += 1) {
   const button = addButtons[i];
 

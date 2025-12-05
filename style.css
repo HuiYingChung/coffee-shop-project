@@ -373,7 +373,6 @@ aside {
   background-color: var(--state-error);
   color: #fff;
   border: none;
-  /* width: 22px; */
   height: 22px;
   border-radius: 2px;
   font-size: 12px;
