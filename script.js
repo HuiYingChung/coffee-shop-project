@@ -233,7 +233,7 @@ function showInputError(inputId, message) {
   inputEl.style.borderColor = ERROR_COLOR;
 }
 
-// show radio group error message
+// Radio group (contact method) error message
 function showRadioError(message) {
   const radioGroup = document.querySelector(".radio-group");
   if (!radioGroup) {
@@ -250,7 +250,7 @@ function showRadioError(message) {
   radioGroup.after(errorEl);
 }
 
-// clear all form error messages
+// Clear Contact Form error messages and red borders
 function clearFormErrors() {
   const errors = document.querySelectorAll(".error-message");
   for (let i = 0; i < errors.length; i += 1) {
@@ -268,7 +268,7 @@ function clearFormErrors() {
   }
 }
 
-// Contact Form message display
+// Contact Form bottom message (success / error)
 function clearContactMessage() {
   const messageEl = document.getElementById("contact-message");
   if (messageEl) {
@@ -301,7 +301,7 @@ if (contactForm) {
   const emailInput = document.getElementById("email");
   const commentsInput = document.getElementById("comments");
 
-  // required attribute
+  // Let JS decide when phone/email are required
   if (phoneInput) {
     phoneInput.removeAttribute("required");
   }
@@ -326,30 +326,39 @@ if (contactForm) {
 
     let isValid = true;
 
-    // name is required
+    // Full name required + at least two words
     if (fullName === ``) {
-      showInputError(`fullName`, `Name is required.`);
+      showInputError(`fullName`, `Full name is required.`);
       isValid = false;
+    } else {
+      const parts = fullName.split(/\s+/); // Split into words by whitespace
+      if (parts.length < 2) {
+        showInputError(
+          `fullName`,
+          `Please enter at least a first and last name.`
+        );
+        isValid = false;
+      }
     }
 
-    // comments is required
+    // Comments required
     if (comments === ``) {
       showInputError(`comments`, `Comments are required.`);
       isValid = false;
     }
 
-    // contact method is required
+    // Contact method required
     if (!contactMethod) {
       showRadioError(`Please select how you'd like us to contact you.`);
       isValid = false;
     }
 
-    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/; // 123-456-7890
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // check based on contact method
+    // Based on the selected contact method, decide which of phone/email is required
     if (contactMethod && contactMethod.value === `phone`) {
-      // phone is required
+      // If "phone" is selected → phone is required & must be valid format
       if (phone === ``) {
         showInputError(
           `phone`,
@@ -361,22 +370,25 @@ if (contactForm) {
         isValid = false;
       }
 
-      // email if filled, check format
+      // If email is filled, validate format (optional)
       if (email !== `` && !emailRegex.test(email)) {
         showInputError(`email`, `Email format looks incorrect.`);
         isValid = false;
       }
     } else if (contactMethod && contactMethod.value === `email`) {
-      // email is required
+      // If "email" is selected → email is required & must be valid format
       if (email === ``) {
-        showInputError(`email`, `Email is required because you chose email.`);
+        showInputError(
+          `email`,
+          `Email is required because you chose email.`
+        );
         isValid = false;
       } else if (!emailRegex.test(email)) {
         showInputError(`email`, `Please enter a valid email address.`);
         isValid = false;
       }
 
-      // phone if filled, check format
+      // If phone is filled, validate format (optional)
       if (phone !== `` && !phoneRegex.test(phone)) {
         showInputError(`phone`, `Use format 123-456-7890.`);
         isValid = false;
@@ -384,21 +396,23 @@ if (contactForm) {
     }
 
     if (!isValid) {
-      // form has errors → display a summary message at the bottom (same style as cart)
       showContactMessage(`Please fix the highlighted fields above.`, true);
       return;
     }
 
-    // passed validation, create customer object
+    // After validation, create customer object
     const customer = {
-      name: fullName,
+      fullName: fullName,
       phone: phone,
       email: email,
       preferredContact: contactMethod ? contactMethod.value : ``,
       comments: comments,
     };
 
-    const successText = `Message sent! Thanks, ${customer.name}. We will contact you via ${customer.preferredContact}.`;
+    const contactTarget =
+      customer.preferredContact === `phone` ? customer.phone : customer.email;
+
+    const successText = `Thank you, ${customer.fullName}! We will contact you by ${customer.preferredContact}.`;
 
     showContactMessage(successText, false);
     contactForm.reset();
