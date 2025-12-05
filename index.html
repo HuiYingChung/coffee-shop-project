@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Cafe | Morning Supply Station</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <h1><a href="index.html">Little Cafe</a></h1>
+        <p>Your little refill station for busy days.</p>
+      </hgroup>
+
+      <button id="theme-toggle">🌙 Dark Mode</button>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#shop-layout">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero">
+        <ul id="hero-slider">
+          <li class="slide active">
+            <img src="images/hero1-pexels-jakubzerdzicki.jpg" alt="Aromatic coffee in a cozy scene">
+          </li>
+          <li class="slide">
+            <img src="images/hero2-pexels-pixabay.jpg" alt="Freshly baked croissants">
+          </li>
+          <li class="slide">
+            <img src="images/hero3-pexels-nord6.jpg" alt="Handmade cookies with tea">
+          </li>
+        </ul>
+
+        <h2 class="hero-text">Handmade with Love</h2>
+      </section>
+
+      <section id="about">
+        <img src="images/about-image.png" alt="Black-and-white hand-drawn illustration of a small cozy café with an awning, a window, a door, a table with a coffee cup, and potted plants.">
+        <h2>About Us</h2>
+        <p>
+          Little Cafe is a tiny, cozy coffee and snack stop for your busy day.
+          We serve a short menu of handcrafted drinks, breakfast croissants, and
+          cookies, all made in small batches. Everything is prepared by hand
+          every morning, so you can grab a warm, comforting refill whenever you
+          need a break.
+        </p>
+      </section>
+
+      <div id="shop-layout">
+        
+        <section class="product-list">
+          <h2>Shop Menu</h2>
+          <p class="shop-cta">Ready for a refill? Start your order below.</p>
+
+          <h3 class="category-title">Coffee</h3>
+          <ul class="grid">
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product1.png" alt="A cup of classic latte">
+                </figure>
+                <h3>Classic Latte</h3>
+                <p class="desc">
+                  Rich espresso with creamy foam to start your day softly and
+                  warmly.
+                </p>
+                <p class="price">$4.50</p>
+                <button
+                  class="add-btn"
+                  data-id="1"
+                  data-name="Classic Latte"
+                  data-price="4.50"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product2.png" alt="Mug of hot americano">
+                </figure>
+                <h3>House Americano</h3>
+                <p class="desc">
+                  Crafted with carefully selected dark-roast beans for a clean,
+                  crisp finish.
+                </p>
+                <p class="price">$3.50</p>
+                <button
+                  class="add-btn"
+                  data-id="2"
+                  data-name="House Americano"
+                  data-price="3.50"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+          </ul>
+
+          <h3 class="category-title">Breakfast Croissants</h3>
+          <ul class="grid">
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product3.png" alt="Croissant with scrambled eggs">
+                </figure>
+                <h3>Egg Croissant</h3>
+                <p class="desc">
+                  A flaky croissant filled with soft, fluffy scrambled eggs —
+                  the perfect breakfast choice.
+                </p>
+                <p class="price">$6.00</p>
+                <button
+                  class="add-btn"
+                  data-id="3"
+                  data-name="Egg Croissant"
+                  data-price="6.00"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product4.png" alt="Chocolate croissant">
+                </figure>
+                <h3>Choco Croissant</h3>
+                <p class="desc">
+                  The blissful taste of Belgian dark chocolate in every bite.
+                </p>
+                <p class="price">$4.00</p>
+                <button
+                  class="add-btn"
+                  data-id="4"
+                  data-name="Chocolate Croissant"
+                  data-price="4.00"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+          </ul>
+
+          <h3 class="category-title">Cookies</h3>
+          <ul class="grid">
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product5.png" alt="Cranberry oatmeal cookies">
+                </figure>
+                <h3>Sweet Cookies</h3>
+                <p class="desc">
+                  Handmade cranberry oat cookies (4 pieces), lightly sweet and
+                  never heavy.
+                </p>
+                <p class="price">$3.50</p>
+                <button
+                  class="add-btn"
+                  data-id="5"
+                  data-name="Sweet Cookies"
+                  data-price="3.50"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+            <li>
+              <article class="product-card">
+                <figure>
+                  <img src="images/product6.png" alt="Rosemary cheese cookies">
+                </figure>
+                <h3>Savory Cookies</h3>
+                <p class="desc">
+                  Cheese and rosemary savory cookies (4 pieces), a perfect match
+                  for coffee.
+                </p>
+                <p class="price">$3.50</p>
+                <button
+                  class="add-btn"
+                  data-id="6"
+                  data-name="Savory Cookies"
+                  data-price="3.50"
+                >
+                  Add
+                </button>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <aside class="cart-calculator">
+          <h3>Your Order</h3>
+
+          <ul id="cart-items">
+            <li class="empty-msg">Cart is empty</li>
+          </ul>
+
+          <footer class="cart-summary">
+            <p>Subtotal: <span id="subtotal-display">$0.00</span></p>
+            <p>Tax (8%): <span id="tax-display">$0.00</span></p>
+            <p class="final-total">
+              Total: <span id="total-display">$0.00</span>
+            </p>
+
+            <button id="checkout-btn">Checkout</button>
+          </footer>
+        </aside>
+      </div>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+          <label>
+            Full Name
+            <input type="text" id="fullName" required>
+          </label>
+
+          <label>
+            Phone Number
+            <input type="tel" id="phone" required placeholder="123-456-7890">
+          </label>
+
+          <label>
+            Email Address
+            <input type="email" id="email" required placeholder="you@example.com">
+          </label>
+
+          <fieldset class="radio-group">
+            <legend>Preferred Contact Method</legend>
+            <label>
+              <input type="radio" name="contactMethod" value="email">
+              Email
+            </label>
+            <label>
+              <input type="radio" name="contactMethod" value="phone">
+              Phone
+            </label>
+          </fieldset>
+
+          <label>
+            Comments
+            <textarea id="comments" rows="4" required></textarea>
+          </label>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Little Cafe. All rights reserved.</p>
+      <address>123 Coffee Lane, Houston, TX</address>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Back to Top">↑</a>
+  </body>
+</html>
