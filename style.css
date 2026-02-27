@@ -552,3 +552,138 @@ html {
   background-color: var(--action-orange);
   transform: translateY(-5px);
 }
+
+/* =========================================
+   Media Queries – Responsive Design
+   ========================================= */
+
+/* --- Fluid body on screens narrower than 1280px --- */
+@media (max-width: 1280px) {
+  body {
+    width: 100%;
+    padding: 20px 30px;
+  }
+}
+
+/* --- Tablet: 1024px and below --- */
+@media (max-width: 1024px) {
+  nav ul {
+    gap: 30px;
+  }
+
+  #shop-layout {
+    gap: 25px;
+  }
+
+  .hero-text {
+    font-size: 2.4rem;
+  }
+}
+
+/* --- Tablet portrait / large mobile: 768px and below --- */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 20px;
+  }
+
+  /* Header stacks vertically */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  /* Nav links wrap with smaller gap */
+  nav ul {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Hero */
+  #hero {
+    height: 260px;
+    margin-bottom: 35px;
+  }
+
+  .hero-text {
+    font-size: 2rem;
+    padding: 10px 25px;
+  }
+
+  /* About: clear float so image stacks above text */
+  #about img {
+    float: none;
+    margin: 0 auto 20px auto;
+    max-height: 200px;
+  }
+
+  /* Shop layout stacks to a single column */
+  #shop-layout {
+    flex-direction: column;
+  }
+
+  /* Remove the offset that only makes sense in side-by-side layout */
+  aside {
+    margin-top: 0;
+  }
+
+  /* Cart goes full width and loses sticky positioning */
+  .cart-calculator {
+    position: static;
+    width: 100%;
+  }
+}
+
+/* --- Mobile: 480px and below --- */
+@media (max-width: 480px) {
+  body {
+    padding: 10px 15px;
+  }
+
+  hgroup h1 {
+    font-size: 1.6rem;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  #hero {
+    height: 200px;
+    margin-bottom: 25px;
+  }
+
+  /* Allow hero text to wrap and shrink on small screens */
+  .hero-text {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+    white-space: normal;
+    text-align: center;
+    width: 90%;
+  }
+
+  #about {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+  }
+
+  /* Product grid collapses to a single column */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contact {
+    max-width: 100%;
+  }
+
+  /* Radio options stack vertically */
+  .radio-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
