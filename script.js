@@ -54,6 +54,7 @@ const totalDisplay = document.getElementById("total-display");
 const checkoutButton = document.getElementById("checkout-btn");
 const addButtons = document.querySelectorAll(".add-btn");
 const cartSummary = document.querySelector(".cart-summary");
+const cartBadge = document.getElementById("cart-badge");
 
 // colors for messages
 const ERROR_COLOR = `var(--state-error)`;
@@ -146,6 +147,16 @@ function updateCartDisplay() {
   subtotalDisplay.textContent = `$${subtotal.toFixed(2)}`;
   taxDisplay.textContent = `$${tax.toFixed(2)}`;
   totalDisplay.textContent = `$${total.toFixed(2)}`;
+
+  // Update fixed cart FAB badge
+  if (cartBadge) {
+    if (cart.length === 0) {
+      cartBadge.hidden = true;
+    } else {
+      cartBadge.textContent = cart.length;
+      cartBadge.hidden = false;
+    }
+  }
 }
 
 // add item to cart function
